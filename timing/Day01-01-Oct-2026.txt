@@ -1,0 +1,17 @@
+----------------------Day_01---------------------
+
+
+ 1) Today i learn The morning giving task as below
+	- Ip Address
+	- OSI Model
+	- DNS
+
+		* For this i spend 30-40 mins .
+
+ 2) Next i Complete the Day01 task from the  Github repository like write a code of Ansible and aslo understand it well .
+
+ 		* For this part i spend around 30 mins .
+
+ 3) Next i watch some English youtube vedios for improving English and Communication also .
+
+ 		* For this i spend 1 and half hour .

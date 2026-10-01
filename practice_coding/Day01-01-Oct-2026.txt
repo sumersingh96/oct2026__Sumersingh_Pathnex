@@ -1,0 +1,14 @@
+----------------------Day01_Task-------------------
+
+	
+
+
+
+
+- name: Install Nginx on Pathnex server
+  hosts; all
+  become: yes
+
+  task:
+   - name: nginx
+     state: present
