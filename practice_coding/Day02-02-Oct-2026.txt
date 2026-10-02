@@ -1,0 +1,43 @@
+
+#-----------------Day_02------------------------
+
+
+#Ansible - Install & Enable Nginx
+
+- name: Install and restart Nginx on Pathnex 
+  hosts: all 
+  become: yes
+
+  task:
+  - name: Install nginx 
+     yum:
+      name: nginx 
+      state: present
+ 
+  - name: Enable nginx
+     service:
+      name: nnginx 
+      state:started 
+      enable: yes
+
+
+
+
+
+
+#Terraform - EC2 with tags (r.2xlarge) 
+
+provider "aws" {
+  region = "us-east-1"
+}
+
+resource "aws_instance" "pathnexEC2" {
+  ami		= "ami-0abcd1234abcd1234" 
+  instance_type = "r5.2xlarge"
+  
+  tags = {
+   Name		 ="Pathnex-Server" 
+   Environment   = "Trianing"
+   Owner	 = "PathnexStudent"
+ }
+}
