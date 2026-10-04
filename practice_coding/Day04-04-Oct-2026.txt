@@ -1,0 +1,136 @@
+#----------------------Day_04-------------------
+
+
+
+
+# Jenkinsfile - Basic Ci Pipeline 
+
+pipeline {
+
+  agent any
+  
+
+  stages {
+   
+   stage('Build') 
+    {
+     steps { 
+       echo 'Buildiing project' 
+     }
+   }
+    
+    stage('Test') {
+     steps {
+       echo 'Running Project'
+       }
+     }
+     
+    stage('Deploy') {
+     steps {
+       echo 'Deploying application;
+       }
+     }
+   }
+ }
+
+
+
+
+#GitLab CI/CD - Basic Pipeline 
+
+
+stages:
+  - buid 
+  - test
+  - deploy
+
+
+build:
+  stage: build
+  script: 
+     - echo "Building roject"
+
+
+test:
+  stage: test
+  script:  
+     - echo "Running test"
+
+
+deploy:
+  stage: deploy
+  script: 
+     - echo"Deploying Application"
+
+
+
+
+#Ansible - Install anf=d configure Nginx
+
+
+
+- name: Install and config Nginx 
+  hosts: all 
+  become: yes
+
+   task
+      - name: Install nginx 
+          yum: 
+            name; nginx 
+	    state:present
+
+      - name: Configure niginx 
+          template:
+	   src: nginx.conf.j2 
+	   dest: /etc/nginx/nginx.cong
+
+
+      - name: Start nginx service 
+          service:
+	    name: nginx 
+	    state: started
+	    enable: yes
+
+
+
+
+
+#Terraform _ EC2 with Security group 
+
+ 
+resource "aws_security_group"  "example" {
+
+    name        = "example_security_group"
+    description = "Allow SSh aand HTTP"
+
+  ingress {
+    from_port   =  22 
+    to_port     = 22  
+    protocol    = "tcp" 
+    cidr_blocks = ["0.0.0.0/0]
+  }
+
+  ingess {
+    from_port = 80
+    to_port = 80 
+    protocol = "tcp
+    cidr_blocks = ["0.0.0.0/0]
+  }
+
+   egress {
+     from_port  = 0 
+     to_port    = 0
+     protocol   = "-1" 
+     cidr_bocks = [0.0.0.0/0]
+  }
+    
+
+#Docker File
+
+From ubuntu:22.04 
+ 
+RUN apt update && apt install apache2 -y 
+
+RUN echo "Hello Pathnex" > /var/www/html/index.html 
+
+CMD ["apachectl","-D","FOREGROUND"]
